@@ -12,21 +12,21 @@ Enable users to have frictionless, context-aware conversations with an AI chatbo
 
 ### Validated
 
-(None yet — ship to validate)
+- **CHAT-BACK-01**: Express backend server connecting to MongoDB Atlas and supporting session-based chat history. (Phase 1/2)
+- **CHAT-BACK-02**: Mongoose ChatHistory model tracking sessionId, message role, text, and timestamps. (Phase 1)
+- **CHAT-BACK-03**: Backend API POST `/api/chat` that loads history, initializes Gemini chat session with history, invokes Gemini 1.5 Flash, stores both messages in MongoDB, and returns the reply, sessionId, and updated history. (Phase 2)
+- **CHAT-BACK-04**: Backend API GET `/api/chat/:sessionId` to retrieve full chat history. (Phase 2)
+- **CHAT-BACK-05**: Backend API DELETE `/api/chat/:sessionId` to wipe chat history for a session. (Phase 2)
+- **CHAT-FRONT-01**: React + Vite frontend styled with a dark premium theme (#0a0a0f, #111118, #7c6fff, #1a1a24, Inter font) and smooth message fade-in animations. (Phase 3)
+- **CHAT-FRONT-02**: App.jsx layout housing Header, ChatWindow, and InputBar with random sessionId generation and localStorage persistence. (Phase 3)
+- **CHAT-FRONT-03**: Header component displaying "AskAI" with an online green/purple glow dot indicator and a "Clear Chat" button. (Phase 4)
+- **CHAT-FRONT-04**: ChatWindow component displaying message bubbles with user/AI avatars, timestamps, auto-scrolling to bottom, and TypingIndicator. (Phase 4)
+- **CHAT-FRONT-05**: InputBar component supporting auto-resize textarea up to 4 rows, enter-to-submit (Shift+Enter for newline), disabled states, and a loading spinner. (Phase 5)
+- **CHAT-FRONT-06**: Error handling with auto-dismissing inline toast on API failure. (Phase 5)
 
 ### Active
 
-- [ ] **CHAT-BACK-01**: Express backend server connecting to MongoDB Atlas and supporting session-based chat history.
-- [ ] **CHAT-BACK-02**: Mongoose ChatHistory model tracking sessionId, message role, text, and timestamps.
-- [ ] **CHAT-BACK-03**: Backend API POST `/api/chat` that loads history, initializes Gemini chat session with history, invokes Gemini 1.5 Flash, stores both messages in MongoDB, and returns the reply, sessionId, and updated history.
-- [ ] **CHAT-BACK-04**: Backend API GET `/api/chat/:sessionId` to retrieve full chat history.
-- [ ] **CHAT-BACK-05**: Backend API DELETE `/api/chat/:sessionId` to wipe chat history for a session.
-- [ ] **CHAT-FRONT-01**: React + Vite frontend styled with a dark premium theme (#0a0a0f, #111118, #7c6fff, #1a1a24, Inter font) and smooth message fade-in animations.
-- [ ] **CHAT-FRONT-02**: App.jsx layout housing Header, ChatWindow, and InputBar with random sessionId generation and localStorage persistence.
-- [ ] **CHAT-FRONT-03**: Header component displaying "AskAI" with an online green/purple glow dot indicator and a "Clear Chat" button.
-- [ ] **CHAT-FRONT-04**: ChatWindow component displaying message bubbles with user/AI avatars, timestamps, auto-scrolling to bottom, and TypingIndicator.
-- [ ] **CHAT-FRONT-05**: InputBar component supporting auto-resize textarea up to 4 rows, enter-to-submit (Shift+Enter for newline), disabled states, and a loading spinner.
-- [ ] **CHAT-FRONT-06**: Error handling with auto-dismissing inline toast on API failure.
+(None - All requirements have been completed and validated)
 
 ### Out of Scope
 
@@ -49,9 +49,9 @@ Enable users to have frictionless, context-aware conversations with an AI chatbo
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Plain CSS | User explicitly requested no Tailwind or component libraries | — Pending |
-| Gemini Chat History Mapping | Convert MongoDB role `"model"` to Gemini API expected role `"model"` | — Pending |
-| Dark Premium Theme | Custom color palette (#0a0a0f, #111118, #7c6fff) matching high-end fintech aesthetics | — Pending |
+| Plain CSS | User explicitly requested no Tailwind or component libraries | — Implemented |
+| Gemini Chat History Mapping | Convert MongoDB role `"model"` to Gemini API expected role `"model"` | — Implemented |
+| Dark Premium Theme | Custom color palette (#0a0a0f, #111118, #7c6fff) matching high-end fintech aesthetics | — Implemented |
 
 ## Evolution
 
@@ -71,4 +71,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-11 after initialization*
+*Last updated: 2026-06-11 after verification*

@@ -6,11 +6,11 @@ Build and deploy a full-stack, session-persistent FAQ chatbot portal featuring a
 
 ## Phases
 
-- [ ] **Phase 1: Backend Foundation** - Express server configuration, MongoDB Atlas connection, and ChatHistory model schema.
-- [ ] **Phase 2: Chat API & Gemini Integration** - Chat history retrieval, deletion, and Gemini API integration with startChat() session history.
-- [ ] **Phase 3: Frontend Setup & Dark Theme** - React + Vite frontend setup, styling system config, and base dark layout.
-- [ ] **Phase 4: Message Flow & Navigation** - Session ID persistence, Header, scrollable ChatWindow, MessageBubbles, and Clear Chat functionality.
-- [ ] **Phase 5: Input Control, Feedback & Polish** - Auto-resizing InputBar, TypingIndicator, Error toast, and message fade-in animations.
+- [x] **Phase 1: Backend Foundation** - Express server configuration, MongoDB Atlas connection, and ChatHistory model schema.
+- [x] **Phase 2: Chat API & Gemini Integration** - Chat history retrieval, deletion, and Gemini API integration with startChat() session history.
+- [x] **Phase 3: Frontend Setup & Dark Theme** - React + Vite frontend setup, styling system config, and base dark layout.
+- [x] **Phase 4: Message Flow & Navigation** - Session ID persistence, Header, scrollable ChatWindow, MessageBubbles, and Clear Chat functionality.
+- [x] **Phase 5: Input Control, Feedback & Polish** - Auto-resizing InputBar, TypingIndicator, Error toast, and message fade-in animations.
 
 ---
 
@@ -27,7 +27,7 @@ Build and deploy a full-stack, session-persistent FAQ chatbot portal featuring a
 **Plans**: 1 plan
 
 Plans:
-- [ ] 01-01: Set up server infrastructure and MongoDB models
+- [x] 01-01: Set up server infrastructure and MongoDB models
 
 ### Phase 2: Chat API & Gemini Integration
 **Goal**: Implement chat history API endpoints and integrate Gemini 1.5 Flash with startChat() history.
@@ -40,7 +40,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 02-01: Build chat routes and wire up generative AI client
+- [x] 02-01: Build chat routes and wire up generative AI client
 
 ### Phase 3: Frontend Setup & Dark Theme
 **Goal**: Create a React app with a premium dark theme styling system in plain CSS.
@@ -52,7 +52,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 03-01: Bootstrap client app and design system tokens
+- [x] 03-01: Bootstrap client app and design system tokens
 
 ### Phase 4: Message Flow & Navigation
 **Goal**: Implement history loading, Header, MessageBubbles, and Clear Chat.
@@ -66,7 +66,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 04-01: Build header, message windows, and history synchronizer
+- [x] 04-01: Build header, message windows, and history synchronizer
 
 ### Phase 5: Input Control, Feedback & Polish
 **Goal**: Build the InputBar, TypingIndicator, loading spinner, error toast, and styling animations.
@@ -80,7 +80,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 05-01: Code InputBar, indicators, toasts, and styling animations
+- [x] 05-01: Code InputBar, indicators, toasts, and styling animations
 
 ---
 
@@ -91,8 +91,9 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Backend Foundation | 0/1 | Not started | - |
-| 2. Chat API & Gemini Integration | 0/1 | Not started | - |
-| 3. Frontend Setup & Dark Theme | 0/1 | Not started | - |
-| 4. Message Flow & Navigation | 0/1 | Not started | - |
-| 5. Input Control, Feedback & Polish | 0/1 | Not started | - |
+| 1. Backend Foundation | 1/1 | Completed | 2026-06-11 |
+| 2. Chat API & Gemini Integration | 1/1 | Completed | 2026-06-11 |
+| 3. Frontend Setup & Dark Theme | 1/1 | Completed | 2026-06-11 |
+| 4. Message Flow & Navigation | 1/1 | Completed | 2026-06-11 |
+| 5. Input Control, Feedback & Polish | 1/1 | Completed | 2026-06-11 |
+

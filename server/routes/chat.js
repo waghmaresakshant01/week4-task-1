@@ -30,7 +30,8 @@ router.post("/", async (req, res) => {
       throw new Error("GEMINI_API_KEY is not defined in environment variables");
     }
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-3.1-flash-lite" });
+    // gemini-2.0-flash-lite: highest free-tier rate limit (~30 RPM, 1500 RPD) as of 2025
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
 
     // 4. Start chat with existing history
     const chat = model.startChat({ history });

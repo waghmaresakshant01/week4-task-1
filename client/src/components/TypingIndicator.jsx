@@ -4,7 +4,7 @@ const TypingIndicator = () => {
   return (
     <div className="message-row model">
       <div className="avatar-wrapper">
-        <span className="material-symbols-outlined">spark</span>
+        <span className="material-symbols-outlined">smart_toy</span>
       </div>
       <div className="bubble-content-wrapper">
         <div className="typing-indicator-wrapper">

@@ -53,6 +53,57 @@ function App() {
     }
   }, [error]);
 
+  // Handle custom cursor and ambient background parallax
+  useEffect(() => {
+    const cursor = document.querySelector(".custom-cursor");
+    const orbsContainer = document.querySelector(".ambient-orbs-container");
+
+    const handleMouseMove = (e) => {
+      const { clientX, clientY } = e;
+
+      // Update cursor position directly in DOM for performance
+      if (cursor) {
+        cursor.style.left = `${clientX}px`;
+        cursor.style.top = `${clientY}px`;
+      }
+
+      // Update orb parallax position directly in DOM
+      if (orbsContainer) {
+        const { innerWidth, innerHeight } = window;
+        // Normalize coordinates from -0.5 to 0.5
+        const offsetX = (clientX / innerWidth) - 0.5;
+        const offsetY = (clientY / innerHeight) - 0.5;
+        
+        // Max shift is 30px (-30px to 30px)
+        const shiftX = offsetX * 60;
+        const shiftY = offsetY * 60;
+
+        orbsContainer.style.setProperty("--orb-x", `${shiftX}px`);
+        orbsContainer.style.setProperty("--orb-y", `${shiftY}px`);
+      }
+    };
+
+    const handleMouseOver = (e) => {
+      // Toggle cursor scaling on hover of interactive items
+      const isInteractive = e.target.closest("a, button, input, textarea, select, .interactive, .suggestion-chip");
+      if (cursor) {
+        if (isInteractive) {
+          cursor.classList.add("hovering");
+        } else {
+          cursor.classList.remove("hovering");
+        }
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseover", handleMouseOver);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseover", handleMouseOver);
+    };
+  }, []);
+
   const showError = (msg) => {
     setError(msg);
   };
@@ -120,24 +171,34 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <div className="film-grain" aria-hidden="true"></div>
-      <div className="ambient-glow" aria-hidden="true"></div>
-      <div className="ambient-glow-left" aria-hidden="true"></div>
+    <>
+      <div id="custom-cursor" className="custom-cursor" aria-hidden="true"></div>
+      <div className="ambient-orbs-container" aria-hidden="true">
+        <div className="ambient-orb orb-1"></div>
+        <div className="ambient-orb orb-2"></div>
+        <div className="ambient-orb orb-3"></div>
+      </div>
+      <div className="app-container">
+        <div className="film-grain" aria-hidden="true"></div>
 
-      <Header onClearChat={handleClearChat} isClearing={isClearing} />
-      <ChatWindow messages={messages} isLoading={isLoading} />
-      <InputBar onSendMessage={handleSendMessage} isLoading={isLoading} />
+        <Header onClearChat={handleClearChat} isClearing={isClearing} />
+        <ChatWindow 
+          messages={messages} 
+          isLoading={isLoading} 
+          onSendMessage={handleSendMessage} 
+        />
+        <InputBar onSendMessage={handleSendMessage} isLoading={isLoading} />
 
-      {error && (
-        <div className="error-toast">
-          <span className="material-symbols-outlined error-toast-icon">
-            error
-          </span>
-          <span>{error}</span>
-        </div>
-      )}
-    </div>
+        {error && (
+          <div className="error-toast">
+            <span className="material-symbols-outlined error-toast-icon">
+              error
+            </span>
+            <span>{error}</span>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 

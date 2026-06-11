@@ -35,30 +35,36 @@ const InputBar = ({ onSendMessage, isLoading }) => {
   return (
     <div className="input-panel">
       <form onSubmit={handleSubmit} className="input-container">
+        <button className="btn-add interactive" type="button" aria-label="Attach file">
+          <span className="material-symbols-outlined">add_circle</span>
+        </button>
         <textarea
           ref={textareaRef}
           value={text}
           onChange={(e) => setText(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Ask a question..."
+          placeholder="Message AskAI..."
           rows={1}
           disabled={isLoading}
-          className="chat-textarea"
+          className="chat-textarea interactive"
           aria-label="Chat input field"
         />
         <button
           type="submit"
           disabled={!text.trim() || isLoading}
-          className="btn-send"
+          className="btn-send interactive"
           aria-label="Send message"
         >
           {isLoading ? (
             <div className="spinner" />
           ) : (
-            <span className="material-symbols-outlined">arrow_upward</span>
+            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>send</span>
           )}
         </button>
       </form>
+      <div className="input-footnote">
+        <p>AI can make mistakes. Consider verifying important information.</p>
+      </div>
     </div>
   );
 };
